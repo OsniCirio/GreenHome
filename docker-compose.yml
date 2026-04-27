@@ -1,0 +1,25 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: greenhome-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  api:
+    build:
+      context: ./GreenHome.Api
+      dockerfile: Dockerfile
+    container_name: greenhome-api
+    depends_on:
+      - mongo
+    ports:
+      - "5000:8080"
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      MongoDbSettings__ConnectionString: mongodb://mongo:27017
+      MongoDbSettings__DatabaseName: GreenHomeDb
+
+volumes:
+  mongo_data:

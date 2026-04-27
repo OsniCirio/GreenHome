@@ -1,0 +1,61 @@
+<div class="container">
+
+  <h4 class="mb-3">🌱 Dashboard Estufa</h4>
+
+  <div class="row g-3">
+
+    <!-- TEMPERATURA -->
+    <div class="col-md-3 col-6">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <h6>🌡️ Temperatura</h6>
+          <h2 class="text-danger">
+            {{ leitura.temperatura || 0 }}°
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- UMIDADE -->
+    <div class="col-md-3 col-6">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <h6>💧 Umidade</h6>
+          <h2 class="text-primary">
+            {{ leitura.umidade || 0 }}%
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- LUZ -->
+    <div class="col-md-3 col-6">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <h6>☀️ Luminosidade</h6>
+          <h2 class="text-warning">
+            {{ leitura.luminosidade || 0 }}
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- LED -->
+    <div class="col-md-3 col-6">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <h6>💡 LED</h6>
+
+          <h2 [class.text-success]="leitura.ligarLed"
+              [class.text-danger]="!leitura.ligarLed">
+
+            {{ leitura.ligarLed ? 'ON' : 'OFF' }}
+          </h2>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
