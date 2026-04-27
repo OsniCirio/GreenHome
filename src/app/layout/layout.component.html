@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <div class="container-fluid">
+    <a class="navbar-brand">🌱 GreenHome</a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse"  data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="menu" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/"><i class="bi bi-house fs-6"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/vegetais"><i class="bi bi-flower1 fs-6"></i> Vegetais</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/regras"><i class="bi bi-sliders fs-6"></i> Regras</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dispositivos"><i class="bi bi-cpu fs-6"></i> Dispositivos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/graficos"><i class="bi bi-diagram-3 fs-6"></i> Graficos</a>
+        </li>
+
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-3">
+  <router-outlet></router-outlet>
+</div>

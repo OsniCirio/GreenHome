@@ -1,0 +1,96 @@
+<form [formGroup]="form" (ngSubmit)="salvar()">
+
+  <div class="card shadow-sm">
+    <div class="card-header bg-success text-white">
+      Regras de Cultivo
+    </div>
+
+    <div class="card-body">
+
+      <div class="row g-2">
+
+        <div class="col-md-4 col-12">
+          <label>Vegetais</label>
+          <select class="form-select" formControlName="vegetalId">
+            <option value="">Selecione</option>
+            <option *ngFor="let v of vegetais" [value]="v.id">
+              {{ v.nome }}
+            </option>
+          </select>
+        </div>
+
+        <div class="col-md-2 col-6">
+          <label >Temp. Mínima <i class="bi bi-droplet"></i></label>
+          <input class="form-control" placeholder="Temp Min" formControlName="temperaturaMinima">
+        </div>
+
+        <div class="col-md-2 col-6">
+          <label >Temp. Máxima <i class="bi bi-droplet"></i></label>
+          <input class="form-control" placeholder="Temp Max" formControlName="temperaturaMaxima">
+        </div>
+
+        <div class="col-md-2 col-6">
+          <label >Umidade Mínima</label>
+          <input class="form-control" placeholder="Umid Min" formControlName="umidadeMinima">
+        </div>
+
+        <div class="col-md-2 col-6">
+          <label >Umidade Máxima</label>
+          <input class="form-control" placeholder="Umid Max" formControlName="umidadeMaxima">
+        </div>
+
+        <div class="col-md-3 col-6">
+          <label >Luz Mínima</label>
+          <input class="form-control" placeholder="Luz Min" formControlName="luminosidadeMinima">
+        </div>
+
+        <div class="col-md-3 col-6">
+          <label >Luz Máxima</label>
+          <input class="form-control" placeholder="Luz Max" formControlName="luminosidadeMaxima">
+        </div>
+
+        <div class="col-md-2 col-4">
+          <label for="corR" >Cor Vermelha</label>
+          <input class="form-control" formControlName="corR">
+        </div>
+
+        <div class="col-md-2 col-4">
+          <label for="corG" >Cor Verde</label>
+          <input class="form-control" formControlName="corG">
+        </div>
+
+        <div class="col-md-2 col-4">
+          <label for="corB" >Cor Azul</label>
+          <input class="form-control" formControlName="corB">
+        </div>
+
+        <div class="col-md-2 col-6">
+          <label for="intensidade">Intensidade</label>
+          <input class="form-control" formControlName="intensidade">
+        </div>
+
+        <div class="col-md-2 col-6 d-flex align-items-end">
+          <button class="btn btn-success w-100 " type="submit">
+            Salvar
+          </button>
+        </div>
+
+      </div>
+
+      <hr>
+
+      <!-- LISTA -->
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <tr *ngFor="let r of regras">
+            <td>{{ r.temperaturaMinima }} - {{ r.temperaturaMaxima }}</td>
+            <td>{{ r.umidadeMinima }} - {{ r.umidadeMaxima }}</td>
+            <td>{{ r.luminosidadeMinima }} - {{ r.luminosidadeMaxima }}</td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+</form>

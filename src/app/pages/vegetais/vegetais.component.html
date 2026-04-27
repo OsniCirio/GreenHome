@@ -1,0 +1,54 @@
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Cadastro de Vegetais
+  </div>
+
+  <div class="card-body">
+
+    <!-- FORM -->
+    <form [formGroup]="form">
+      <div class="row g-2">
+        <div class="col-md-8 col-12">
+          <input class="form-control"
+                 formControlName="nome"
+                 placeholder="Nome do vegetal">
+        </div>
+
+        <div class="col-md-2 col-12">
+          <button class="btn btn-success w-100" (click)="salvar()">
+            <i class="bi bi-save"></i>  Salvar
+          </button>
+        </div>
+        <div class="col-md-2 col-12">
+          <button class="btn btn-success w-100" (click)="novo()"><i class="bi bi-plus-circle"></i> Adicionar
+          </button>
+        </div>
+      </div>
+    </form>
+    <hr>
+
+    <!-- LISTA -->
+    <div class="table-responsive">
+      <table class="table table-striped mt-3">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th style="width:120px">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let v of vegetais">
+            <td>{{ v.nome }}</td>
+            <td>
+              <button class="btn btn-danger btn-sm"
+                      (click)="excluir(v.id)">
+                Excluir
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
