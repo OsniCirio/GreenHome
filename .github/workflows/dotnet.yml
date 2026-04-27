@@ -3,8 +3,6 @@ name: .NET CI
 on:
   push:
     branches: [ "main", "develop", "homologacao" ]
-  pull_request:
-    branches: [ "main", "develop", "homologacao" ]
 
 jobs:
   build:
@@ -14,16 +12,19 @@ jobs:
     - name: Checkout código
       uses: actions/checkout@v4
 
+    - name: Listar estrutura
+      run: ls -R
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.0.x'
 
-    - name: Restore dependências
-      run: dotnet restore GreenHome.sln
+    - name: Restore
+      run: dotnet restore $(find . -name "*.sln")
 
     - name: Build
-      run: dotnet build GreenHome.sln --no-restore --configuration Release
+      run: dotnet build $(find . -name "*.sln") --no-restore --configuration Release
 
-    - name: Testes
-      run: dotnet test GreenHome.sln --no-build --verbosity normal
+    - name: Test
+      run: dotnet test $(find . -name "*.sln") --no-build --verbosity normal
